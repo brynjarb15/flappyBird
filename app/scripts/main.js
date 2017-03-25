@@ -2,9 +2,9 @@
 /**
  * Bootstrap and start the game.
  */
-$(function() {
-    'use strict';
+$(function () {
+	'use strict';
 
-    var game = new window.Game($('.GameCanvas'));
-    game.start();
+	var game = new window.Game($('.GameCanvas'));
+	game.start();
 });

@@ -1,5 +1,5 @@
 
-window.Game = (function() {
+window.Game = (function () {
 	'use strict';
 
 	/**
@@ -7,7 +7,7 @@ window.Game = (function() {
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
-	var Game = function(el) {
+	var Game = function (el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.isPlaying = false;
@@ -20,7 +20,7 @@ window.Game = (function() {
 	 * Runs every frame. Calculates a delta and allows each game
 	 * entity to update itself.
 	 */
-	Game.prototype.onFrame = function() {
+	Game.prototype.onFrame = function () {
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
@@ -28,7 +28,7 @@ window.Game = (function() {
 
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
-				delta = now - this.lastFrame;
+			delta = now - this.lastFrame;
 		this.lastFrame = now;
 
 		// Update game entities.
@@ -41,7 +41,7 @@ window.Game = (function() {
 	/**
 	 * Starts a new game.
 	 */
-	Game.prototype.start = function() {
+	Game.prototype.start = function () {
 		this.reset();
 
 		// Restart the onFrame loop
@@ -53,14 +53,14 @@ window.Game = (function() {
 	/**
 	 * Resets the state of the game so a new game can be started.
 	 */
-	Game.prototype.reset = function() {
+	Game.prototype.reset = function () {
 		this.player.reset();
 	};
 
 	/**
 	 * Signals that the game is over.
 	 */
-	Game.prototype.gameover = function() {
+	Game.prototype.gameover = function () {
 		this.isPlaying = false;
 
 		// Should be refactored into a Scoreboard class.
@@ -69,10 +69,10 @@ window.Game = (function() {
 		scoreboardEl
 			.addClass('is-visible')
 			.find('.Scoreboard-restart')
-				.one('click', function() {
-					scoreboardEl.removeClass('is-visible');
-					that.start();
-				});
+			.one('click', function () {
+				scoreboardEl.removeClass('is-visible');
+				that.start();
+			});
 	};
 
 	/**

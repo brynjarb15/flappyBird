@@ -1,9 +1,9 @@
 {
-  "name": "html5-game-new",
-  "private": true,
-  "dependencies": {
-    "chai": "~1.8.0",
-    "mocha": "~1.14.0"
-  },
-  "devDependencies": {}
+	"name": "html5-game-new",
+	"private": true,
+	"dependencies": {
+		"chai": "~1.8.0",
+		"mocha": "~1.14.0"
+	},
+	"devDependencies": {}
 }

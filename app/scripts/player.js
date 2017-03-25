@@ -1,4 +1,4 @@
-window.Player = (function() {
+window.Player = (function () {
 	'use strict';
 
 	var Controls = window.Controls;
@@ -11,7 +11,7 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
-	var Player = function(el, game) {
+	var Player = function (el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
@@ -20,12 +20,12 @@ window.Player = (function() {
 	/**
 	 * Resets the state of the player for a new game.
 	 */
-	Player.prototype.reset = function() {
+	Player.prototype.reset = function () {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 	};
 
-	Player.prototype.onFrame = function(delta) {
+	Player.prototype.onFrame = function (delta) {
 		if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
@@ -45,7 +45,7 @@ window.Player = (function() {
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
-	Player.prototype.checkCollisionWithBounds = function() {
+	Player.prototype.checkCollisionWithBounds = function () {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
