@@ -6,7 +6,7 @@ window.Player = (function () {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
-	var WIDTH = 5;
+	var WIDTH = 7;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
@@ -19,8 +19,11 @@ window.Player = (function () {
 
 	var Player = function (el, game) {
 		this.el = el;
+		this.child = this.el.find('.pikachu');
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
+		this.rotationDegree = 0;
+		this.multiplycationOfFalling = 1;
 	};
 
 	/**
@@ -34,10 +37,16 @@ window.Player = (function () {
 	Player.prototype.onFrame = function (delta) {
 
 		if (Controls.didJump()) {
-			this.pos.y -= delta * SPEED*5;
+			this.pos.y -= delta * SPEED*8;
+			this.rotationDegree = -25;
+			this.multiplycationOfFalling = 1;
+		}
+		else if(this.rotationDegree < 90) {
+			this.rotationDegree += 2;
+			this.multiplycationOfFalling += 0.1;
 		}
 		
-		this.pos.y += delta * SPEED*0.2; // ef þessi lína er með þá ferðu rólega niður
+		this.pos.y += delta * SPEED*0.2* this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
 		/*if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
@@ -54,6 +63,7 @@ window.Player = (function () {
 		this.checkCollisionWithBounds();
 
 		// Update UI
+		this.child.css('transform', 'rotate(' + this.rotationDegree + 'deg)');
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
