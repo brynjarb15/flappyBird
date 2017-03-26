@@ -5,6 +5,14 @@
 	width: 5em;
 	height: 5em;
 	background: blue;
+
+	
+	width: 20em;
+	height: 20em;
+	background: transparent;
+	content: url(../images/pikachu.png);
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
 }
 
 .Scoreboard {
@@ -36,29 +44,34 @@
 	background: none;
 	cursor: pointer;
 }
+
 .Scoreboard-restartText {
-font-family: 'Comic Sans MS', serif;
-font-size: 2.4em;
-color: white;
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.4em;
+	color: white;
 }
+
 body {
-background: black;
+	background: black;
 }
+
 .browsehappy {
-margin: 0.2em 0;
-background: ?#?ccc?;
-color: #000;
-padding: 0.2em 0;
+	margin: 0.2em 0;
+	background: ?#?ccc?;
+	color: #000;
+	padding: 0.2em 0;
 }
+
 .GameCanvas {
-font-size: 10px;
-position: absolute;
-left: 50%;
-top: 50%;
-width: 102.4em;
-height: 57.6em;
-margin-left: -51.2em;
-margin-top: -28.8em;
-overflow: hidden;
-background: red;
+	font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 102.4em;
+	height: 57.6em;
+	margin-left: -51.2em;
+	margin-top: -28.8em;
+	overflow: hidden;
+	background: red;
+	background: royalblue;
 }

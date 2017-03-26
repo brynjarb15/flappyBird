@@ -12,6 +12,14 @@ window.Game = (function () {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.isPlaying = false;
 
+
+		var fontSize = Math.min(
+			window.innerWidth / Game.prototype.WORLD_WIDTH,
+			window.innerHeight / Game.prototype.WORLD_HEIGHT
+		);
+		el.css('fontSize', fontSize + 'px');
+
+
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};

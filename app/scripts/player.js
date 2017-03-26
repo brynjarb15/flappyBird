@@ -11,6 +11,14 @@ window.Player = (function () {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
+
+
+	// breytti til að prufa
+	WIDTH = 20;
+	HEIGHT = 20;
+
+
+
 	var Player = function (el, game) {
 		this.el = el;
 		this.game = game;
@@ -26,6 +34,8 @@ window.Player = (function () {
 	};
 
 	Player.prototype.onFrame = function (delta) {
+		
+		this.pos.y += delta * SPEED*0.2; // ef þessi lína er með þá ferðu rólega niður
 		if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
@@ -42,7 +52,7 @@ window.Player = (function () {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function () {
