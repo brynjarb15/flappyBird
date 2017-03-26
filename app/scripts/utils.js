@@ -14,3 +14,9 @@ if (!window.requestAnimationFrame) {
 			};
 	})();
 }
+
+
+function muteSound() {
+	backgroundMusic = document.getElementById('backgroundMusic');
+	backgroundMusic.muted = !backgroundMusic.muted;
+}

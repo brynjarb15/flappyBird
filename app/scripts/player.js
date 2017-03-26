@@ -37,16 +37,19 @@ window.Player = (function () {
 	Player.prototype.onFrame = function (delta) {
 
 		if (Controls.didJump()) {
-			this.pos.y -= delta * SPEED*8;
+			this.pos.y -= delta * SPEED * 8;
 			this.rotationDegree = -25;
 			this.multiplycationOfFalling = 1;
+
+			var snd = new Audio("../sounds/flappyBirdSounds/jump.wav");
+			snd.play();
 		}
-		else if(this.rotationDegree < 90) {
+		else if (this.rotationDegree < 90) {
 			this.rotationDegree += 2;
 			this.multiplycationOfFalling += 0.1;
 		}
-		
-		this.pos.y += delta * SPEED*0.2* this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
+
+		this.pos.y += delta * SPEED * 0.2 * this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
 		/*if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
@@ -71,7 +74,11 @@ window.Player = (function () {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5) { // skoða betur með -2.5 er svo hann fari ekki í gegnum jörðina
+			var snd = new Audio("../sounds/flappyBirdSounds/hit.wav");
+			snd.play();
+
+			this.rotationDegree = 90;
 			return this.game.gameover();
 		}
 	};
