@@ -1,18 +1,42 @@
 .Player {
-	position: absolute;
+	/*position: absolute;
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 5em;
-	background: blue;
-
+	width: 7em;
+	height: 5em;*/
+	/*background: blue;*/
 	
+	position: relative;
+	width: 7em;
+	height: 5em;
 
-	background: transparent;
-	content: url(../images/pikachu.png);
-	content: url(../images/pikachu_running.gif);
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
+
+}
+.Player::before {
+	content: "";
+	display: block;
+	padding-top: 61.37%;
+
+}
+
+@keyframes play {
+  from { background-position: 0 0%; }
+  to { background-position: 0 100%; }
+}
+
+.pikachu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+  background:  url('../images/spritesheet_pikachu.png') no-repeat 0 0%;
+  background-size: 100%;
+  animation: play .4s steps(4) infinite;
+  transform: translateZ(0);
 }
 
 .Scoreboard {
