@@ -23,6 +23,7 @@ window.Player = (function () {
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
 		this.rotationDegree = 0;
+		this.multiplycationOfFalling = 1;
 	};
 
 	/**
@@ -36,14 +37,16 @@ window.Player = (function () {
 	Player.prototype.onFrame = function (delta) {
 
 		if (Controls.didJump()) {
-			this.pos.y -= delta * SPEED*5;
+			this.pos.y -= delta * SPEED*8;
 			this.rotationDegree = -25;
+			this.multiplycationOfFalling = 1;
 		}
 		else if(this.rotationDegree < 90) {
-			this.rotationDegree += 1;
+			this.rotationDegree += 2;
+			this.multiplycationOfFalling += 0.1;
 		}
 		
-		this.pos.y += delta * SPEED*0.2; // ef þessi lína er með þá ferðu rólega niður
+		this.pos.y += delta * SPEED*0.2* this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
 		/*if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
