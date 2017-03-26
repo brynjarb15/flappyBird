@@ -13,9 +13,7 @@ window.Player = (function () {
 
 
 
-	// breytti til að prufa
-	WIDTH = 20;
-	HEIGHT = 20;
+
 
 
 
@@ -34,9 +32,13 @@ window.Player = (function () {
 	};
 
 	Player.prototype.onFrame = function (delta) {
+
+		if (Controls.didJump()) {
+			this.pos.y -= delta * SPEED*5;
+		}
 		
 		this.pos.y += delta * SPEED*0.2; // ef þessi lína er með þá ferðu rólega niður
-		if (Controls.keys.right) {
+		/*if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
 		if (Controls.keys.left) {
@@ -47,7 +49,7 @@ window.Player = (function () {
 		}
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
-		}
+		}*/
 
 		this.checkCollisionWithBounds();
 

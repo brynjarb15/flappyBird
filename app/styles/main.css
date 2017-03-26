@@ -7,10 +7,10 @@
 	background: blue;
 
 	
-	width: 20em;
-	height: 20em;
+
 	background: transparent;
 	content: url(../images/pikachu.png);
+	content: url(../images/pikachu_running.gif);
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
 }
