@@ -10,6 +10,12 @@ window.Game = (function () {
 	var Game = function (el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
+		this.cloud = new window.Cloud(this.el.find('.Cloud'), this);
+		this.ground = new window.Ground(this.el.find('.Ground'), this);
+		//this.ground = new window.Ground(this.el.find('.Ground'), this);
+		//this.cloud = new window.Cloud(this.el.find('.Cloud'), this);
+		//this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
+		//background?
 		this.isPlaying = false;
 
 
@@ -28,6 +34,7 @@ window.Game = (function () {
 	 * Runs every frame. Calculates a delta and allows each game
 	 * entity to update itself.
 	 */
+
 	Game.prototype.onFrame = function () {
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
@@ -41,6 +48,8 @@ window.Game = (function () {
 
 		// Update game entities.
 		this.player.onFrame(delta);
+		this.cloud.onFrame(delta);
+		this.ground.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -63,6 +72,8 @@ window.Game = (function () {
 	 */
 	Game.prototype.reset = function () {
 		this.player.reset();
+		this.cloud.reset();
+		this.ground.reset();
 	};
 
 	/**
