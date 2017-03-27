@@ -8,13 +8,13 @@ window.Ground = (function () {
 	var Ground = function (el, game) {
 		this.el = el;
 		this.game = game;
-		this.pos = { x: 0, y: 0 };
-		INITIAL_POSITION_Y = this.game.WORLD_HEIGHT - 7;
+		this.pos = { x: 0, y: 32.5 };
+		//INITIAL_POSITION_Y = this.game.WORLD_HEIGHT - 7;
 	};
 
 	Ground.prototype.reset = function () {
 		this.pos.x = INITIAL_POSITION_X;
-		this.pos.y = INITIAL_POSITION_Y;
+		this.pos.y = 32.5;
 	};
 
 	Ground.prototype.onFrame = function (delta) {
