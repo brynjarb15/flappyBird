@@ -126,6 +126,7 @@ body {
 	margin-top: 0;
 }
 
+
 /* Animated clouds taken http://codepen.io/anon/pen/EWeVEy
 */
 
@@ -151,30 +152,30 @@ body {
 /* KEYFRAMES */
 
 @-webkit-keyframes animateCloud {
-    0% {
-        margin-left: -1000px;
-    }
-    100% {
-        margin-left: 100%;
-    }
+	0% {
+		margin-left: -1000px;
+	}
+	100% {
+		margin-left: 100%;
+	}
 }
 
 @-moz-keyframes animateCloud {
-    0% {
-        margin-left: -1000px;
-    }
-    100% {
-        margin-left: 100%;
-    }
+	0% {
+		margin-left: -1000px;
+	}
+	100% {
+		margin-left: 100%;
+	}
 }
 
 @keyframes animateCloud {
-    0% {
-        margin-left: -1000px;
-    }
-    100% {
-        margin-left: 100%;
-    }
+	0% {
+		margin-left: -1000px;
+	}
+	100% {
+		margin-left: 100%;
+	}
 }
 
 /* ANIMATIONS */
@@ -265,4 +266,19 @@ body {
 	right: 5em;
 	top: -9em;
 }
+
+
+.Pipe1 {
+	background: url('../images/pipe1.png');
+	background-size: 10%;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 7em;
+}
+
+/*.Pipe2 {
+	background: url('../images/pipe2.png');
+	z-index: -1;
+}*/
 
