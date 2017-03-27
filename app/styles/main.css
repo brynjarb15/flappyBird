@@ -115,16 +115,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-.Ground {
-	margin-top: 56.5em;
-	background: url('../images/ground.png') repeat-x;
-	height: 100%;
-	width: 120%;
-	
-	bottom: 0;
-	height: 3em;
-	margin-top: 0;
-}
+
 
 
 /* Animated clouds taken http://codepen.io/anon/pen/EWeVEy
@@ -269,11 +260,21 @@ body {
 	background: url('../images/pipe1.png');
 	background-size: 10%;
 	background-repeat: no-repeat;
-	height: 100%;
 	width: 100%;
-	margin-bottom: 7em;
+	bottom: -2;
+	height: 19em;
+	margin-top: 0;
 }
-
+.Ground {
+	margin-top: 56.5em;
+	background: url('../images/ground.png') repeat-x;
+	height: 100%;
+	width: 120%;
+	
+	bottom: 0;
+	height: 3em;
+	margin-top: 0;
+}
 /*.Pipe2 {
 	background: url('../images/pipe2.png');
 	z-index: -1;
