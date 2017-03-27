@@ -188,7 +188,6 @@ body {
 	-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
 	transform: scale(0.4);
-	transform: scale(0.4);
 }
 
 .x2 {
@@ -199,7 +198,6 @@ body {
 	-webkit-transform: scale(0.2);
 	-moz-transform: scale(0.2);
 	transform: scale(0.2);
-	transform: scale(0.2);
 }
 
 .x3 {
@@ -209,7 +207,6 @@ body {
 	
 	-webkit-transform: scale(0.15);
 	-moz-transform: scale(0.15);
-	transform: scale(0.15);
 	transform: scale(0.15);
 }
 
