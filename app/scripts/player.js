@@ -38,14 +38,14 @@ window.Player = (function () {
 
 		if (Controls.didJump()) {
 			this.pos.y -= delta * SPEED * 8;
-			this.rotationDegree = -25;
-			this.multiplycationOfFalling = 1;
+			this.rotationDegree = -25; // make player look up
+			this.multiplycationOfFalling = 1; // restart factor of falling
 
-			var snd = new Audio("../sounds/flappyBirdSounds/jump.wav");
+			var snd = new Audio("../sounds/flappyBirdSounds/jump.wav"); // make jump sound
 			snd.play();
 		}
 		else if (this.rotationDegree < 90) {
-			this.rotationDegree += 2;
+			this.rotationDegree += 2; // rotate toward the groun
 			this.multiplycationOfFalling += 0.1;
 		}
 

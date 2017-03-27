@@ -13,7 +13,7 @@
 
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
-
+	z-index: 3;
 }
 .Player::before {
 	content: "";
@@ -50,8 +50,9 @@
 	box-sizing: border-box;
 	background: purple;
 	text-align: center;
-	-webkit-transform: translate(0, -40em);
+	-webkit-transform: translate3d(0, -40em, 0);
 	-webkit-transition: -webkit-transform 0.5s;
+	z-index: 10;
 }
 
 /**
@@ -98,8 +99,10 @@ body {
 	margin-top: -28.8em;
 	overflow: hidden;
 	background: red;
-	background: url('../images/backgroundworld.png');
+	background: url('../images/backgroundworld.png') transparent;
+	/*background: rgba(99,51,31,0.9);*/
 	background-size: cover;
+	/*background: transparent;/**/
 }
 
 .Cloud {
@@ -121,5 +124,145 @@ body {
 	bottom: 0;
 	height: 3em;
 	margin-top: 0;
+}
+
+/* Animated clouds taken http://codepen.io/anon/pen/EWeVEy
+*/
+
+#backgroundClouds {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	color: #5B5;
+}
+
+
+#background-wrap {
+	bottom: 0;
+	left: 0;
+	padding-top: 50px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
+}
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+/* ANIMATIONS */
+
+.x1 {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+	
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	transform: scale(0.4);
+	transform: scale(0.4);
+}
+
+.x2 {
+	-webkit-animation: animateCloud 19s linear infinite;
+	-moz-animation: animateCloud 19s linear infinite;
+	animation: animateCloud 19s linear infinite;
+	
+	-webkit-transform: scale(0.2);
+	-moz-transform: scale(0.2);
+	transform: scale(0.2);
+	transform: scale(0.2);
+}
+
+.x3 {
+	-webkit-animation: animateCloud 28s linear infinite;
+	-moz-animation: animateCloud 28s linear infinite;
+	animation: animateCloud 28s linear infinite;
+	
+	-webkit-transform: scale(0.15);
+	-moz-transform: scale(0.15);
+	transform: scale(0.15);
+	transform: scale(0.15);
+}
+
+/* OBJECTS */
+
+.cloud {
+	background: #fff;
+	background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-box-shadow: 0 .8em .5em rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 .8em .5em rgba(0, 0, 0, 0.1);
+	box-shadow: 0 .8em .5em rgba(0, 0, 0, 0.1);
+
+	height: 12em;
+	position: relative;
+	width: 35em;
+}
+
+.cloud:after, .cloud:before {
+	background: #fff;
+	content: '';
+	position: absolute;
+	z-indeX: -1;
+}
+
+.cloud:after {
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	height: 10em;
+	left: 5em;
+	top: -5em;
+	width: 10em;
+}
+
+.cloud:before {
+	-webkit-border-radius: 20em;
+	-moz-border-radius: 20em;
+	border-radius: 20em;
+
+	width: 18em;
+	height: 18em;
+	right: 5em;
+	top: -9em;
 }
 
