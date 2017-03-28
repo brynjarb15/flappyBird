@@ -1,4 +1,3 @@
-
 window.Game = (function () {
 	'use strict';
 
@@ -12,13 +11,19 @@ window.Game = (function () {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.ground = new window.Ground(this.el.find('.Ground'), this);
 
-		this.pipes = new Array();
-		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe1'), this, 0), 
-						 upper: new window.Pipes(this.el.find('.Pipe2'), this, 0)});
-		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe3'), this, 1), 
-						 upper: new window.Pipes(this.el.find('.Pipe4'), this, 1)});
-		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe5'), this, 2), 
-						 upper: new window.Pipes(this.el.find('.Pipe6'), this, 2)});
+		this.pipes = [];
+		this.pipes.push({
+			lower: new window.Pipes(this.el.find('.Pipe1'), this, 0),
+			upper: new window.Pipes(this.el.find('.Pipe2'), this, 0)
+		});
+		this.pipes.push({
+			lower: new window.Pipes(this.el.find('.Pipe3'), this, 1),
+			upper: new window.Pipes(this.el.find('.Pipe4'), this, 1)
+		});
+		this.pipes.push({
+			lower: new window.Pipes(this.el.find('.Pipe5'), this, 2),
+			upper: new window.Pipes(this.el.find('.Pipe6'), this, 2)
+		});
 		this.isPlaying = false;
 
 
@@ -53,7 +58,7 @@ window.Game = (function () {
 		this.player.onFrame(delta);
 		this.ground.onFrame(delta);
 
-		for(var i = 0; i < this.pipes.length; i++) {
+		for (var i = 0; i < this.pipes.length; i++) {
 			this.pipes[i].lower.onFrame(delta);
 			this.pipes[i].upper.onFrame(delta);
 		}
@@ -79,13 +84,13 @@ window.Game = (function () {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function () {
-		this.nextPipe = { thePipes: this.pipes[0], pipeNumber: 0};
+		this.nextPipe = { thePipes: this.pipes[0], pipeNumber: 0 };
 		this.player.reset();
 		this.ground.reset();
 
-		for(var i = 0; i < this.pipes.length; i++) {
-			this.pipes[i].lower.reset(40*i);
-			this.pipes[i].upper.reset(40*i);
+		for (var i = 0; i < this.pipes.length; i++) {
+			this.pipes[i].lower.reset(40 * i);
+			this.pipes[i].upper.reset(40 * i);
 		}
 	};
 
@@ -107,14 +112,12 @@ window.Game = (function () {
 			});
 	};
 
-	Game.prototype.setNextPipe = function (){
-		console.log(this.pipes.length);
+	Game.prototype.setNextPipe = function () {
 		var nextPipeNumber = this.nextPipe.pipeNumber + 1;
-		nextPipeNumber =  nextPipeNumber % (this.pipes.length);
+		nextPipeNumber = nextPipeNumber % (this.pipes.length);
 		this.nextPipe.thePipes = this.pipes[nextPipeNumber];
 		this.nextPipe.pipeNumber = nextPipeNumber;
-		console.log('nextPipe', nextPipeNumber);
-	}
+	};
 
 	/**
 	 * Some shared constants.
@@ -122,7 +125,7 @@ window.Game = (function () {
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.SPEED_OF_GROUND_AND_PIPES = 30;
-	
+
 	Game.prototype.isMuted = false;
 
 	return Game;

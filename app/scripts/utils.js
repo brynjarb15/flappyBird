@@ -1,3 +1,4 @@
+'use stric';
 /**
  * Cross browser RequestAnimationFrame
  */
@@ -15,12 +16,14 @@ if (!window.requestAnimationFrame) {
 	})();
 }
 
-
-function muteMusic() {
-	backgroundMusic = document.getElementById('backgroundMusic');
+var muteMusic = function () {
+	'use strict';
+	var backgroundMusic = document.getElementById('backgroundMusic');
 	backgroundMusic.muted = !backgroundMusic.muted;
-}
+};
 
-function muteSound() {
+var muteSound = function () {
+	'use strict';
 	window.Game.prototype.isMuted = !window.Game.prototype.isMuted;
-}
+};
+

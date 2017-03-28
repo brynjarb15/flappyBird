@@ -10,7 +10,8 @@ window.Controls = (function () {
 		37: 'left',
 		38: 'up',
 		39: 'right',
-		40: 'down'
+		40: 'down',
+		77: 'm'
 	};
 
 	/**
@@ -33,6 +34,12 @@ window.Controls = (function () {
 		// Only jump if space wasn't pressed.
 		if ((e.keyCode === 32 || e.which === 1) && !this.keys.space) {
 			this._didJump = true;
+		}
+		//Mute and unmute if m is clicked
+		if(e.keyCode === 77) {
+			var backgroundMusic = document.getElementById('backgroundMusic');
+			backgroundMusic.muted = !backgroundMusic.muted;
+			window.Game.prototype.isMuted = !window.Game.prototype.isMuted;
 		}
 
 		// Remember that this button is down.

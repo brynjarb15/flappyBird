@@ -36,7 +36,7 @@ window.Player = (function () {
 			this.rotationDegree = -25; // make player look up
 			this.multiplycationOfFalling = 1; // restart factor of falling
 			if (!this.game.isMuted) {
-				var snd = new Audio("../sounds/flappyBirdSounds/jump.wav"); // make jump sound
+				var snd = new Audio('../sounds/flappyBirdSounds/jump.wav'); // make jump sound
 				snd.play();
 			}
 		}
@@ -47,19 +47,7 @@ window.Player = (function () {
 			this.multiplycationOfFalling += 0.3;
 		}
 
-		this.pos.y += delta * SPEED * 0.2 * this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
-		/*if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
-		}*/
+		this.pos.y += delta * SPEED * 0.2 * this.multiplycationOfFalling; // this push the player down
 		this.checkCollisionWithBounds();
 
 		// Update UI
@@ -68,28 +56,17 @@ window.Player = (function () {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function () {
-		/*if ( this.pos.x < 0 ||
-			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5) { // skoða betur með -2.5 er svo hann fari ekki í gegnum jörðina
-			var snd = new Audio("../sounds/flappyBirdSounds/hit.wav");
-			snd.play();
-
-			this.rotationDegree = 90;
-			return this.game.gameover();
-		}*/
 		var nextPipe = this.game.nextPipe.thePipes.lower;
 		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5 ||	//athuga hvort hann fari í jörðina
 			(this.pos.x + WIDTH - 2 > nextPipe.pos.x &&		//athuga hvort hann sé kominn að pípunni
-				!(this.pos.x + WIDTH > nextPipe.pos.x + nextPipe.size.WIDTH) && // athuga hvort hann sé komin lengra en pípan
+				this.pos.x + WIDTH <= nextPipe.pos.x + nextPipe.size.WIDTH && // athuga hvort hann sé komin lengra en pípan
 				(this.pos.y < nextPipe.pos.y + 21 ||			//athuga hvort hann sé fyrir neðan efri
 					this.pos.y > nextPipe.pos.y + 30)				//athuga hvort hann sé fyrir ofan neðrir pípuna
 			)
 		) {
 			this.rotationDegree = 90;
-			//this.pos.y = this.game.WORLD_HEIGHT - 2.5 - HEIGHT;
 			if (!this.game.isMuted) {
-				var hitSound = new Audio("../sounds/flappyBirdSounds/hit.wav");
+				var hitSound = new Audio('../sounds/flappyBirdSounds/hit.wav');
 				hitSound.play();
 			}
 			return this.game.gameover();
