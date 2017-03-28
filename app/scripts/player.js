@@ -12,11 +12,6 @@ window.Player = (function () {
 	var INITIAL_POSITION_Y = 25;
 
 
-
-
-
-
-
 	var Player = function (el, game) {
 		this.el = el;
 		this.child = this.el.find('.pikachu');
@@ -47,6 +42,8 @@ window.Player = (function () {
 		else if (this.rotationDegree < 90) {
 			this.rotationDegree += 2; // rotate toward the groun
 			this.multiplycationOfFalling += 0.1;
+		} else {
+			this.multiplycationOfFalling += 0.3;
 		}
 
 		this.pos.y += delta * SPEED * 0.2 * this.multiplycationOfFalling; // ef þessi lína er með þá ferðu rólega niður
@@ -66,12 +63,12 @@ window.Player = (function () {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.child.css('transform', 'rotate(' + this.rotationDegree + 'deg)');
+		this.child.css('transform', 'translateZ(0) rotate(' + this.rotationDegree + 'deg)');
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function () {
-		if (this.pos.x < 0 ||
+		/*if ( this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5) { // skoða betur með -2.5 er svo hann fari ekki í gegnum jörðina
@@ -79,6 +76,19 @@ window.Player = (function () {
 			snd.play();
 
 			this.rotationDegree = 90;
+			return this.game.gameover();
+		}*/
+		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5 ||	//athuga hvort hann fari í jörðina
+			(this.pos.x + WIDTH - 2 > this.game.pipe1.pos.x &&		//athuga hvort hann sé kominn að pípunni
+				!(this.pos.x + WIDTH > this.game.pipe1.pos.x + this.game.pipe1.size.WIDTH) && // athuga hvort hann sé komin lengra en pípan
+				(this.pos.y < this.game.pipe1.pos.y + 21 ||			//athuga hvort hann sé fyrir neðan efri
+					this.pos.y > this.game.pipe1.pos.y + 30)				//athuga hvort hann sé fyrir ofan neðrir pípuna
+			)
+		) {
+			this.rotationDegree = 90;
+			this.pos.y = this.game.WORLD_HEIGHT - 2.5 - HEIGHT;
+			var snd = new Audio("../sounds/flappyBirdSounds/hit.wav");
+			snd.play();
 			return this.game.gameover();
 		}
 	};

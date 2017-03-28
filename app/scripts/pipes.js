@@ -12,6 +12,7 @@ window.Pipes = (function () {
 		this.pos = { x: INITIAL_POSITION_X, y: this.getRand() };
         this.score = 0;
         this.player = game.player;
+		this.size = { WIDTH: 11};
 	};
 
 	Pipes.prototype.reset = function () {
