@@ -4,7 +4,7 @@
 
 You can press m to mute the sounds
 
-# This game project has the following:
+## This game project has the following:
 
 * 1024x768 pixel game canvas.
 * All positions and sizes defined using a 10px em. This means that the game could be scaled up and down by changing the base font-size. This is one way to make the graphics responsive.
