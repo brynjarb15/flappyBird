@@ -1,5 +1,8 @@
 # HTML5 CSS-based Game
 
+
+You can press m to mute the sounds
+
 This game project has the following:
 
 * 1024x768 pixel game canvas.
