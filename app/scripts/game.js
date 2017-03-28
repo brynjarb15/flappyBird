@@ -121,6 +121,7 @@ window.Game = (function () {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
+	Game.prototype.SPEED_OF_GROUND_AND_PIPES = 30;
 	
 	Game.prototype.isMuted = false;
 
