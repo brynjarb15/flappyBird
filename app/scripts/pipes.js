@@ -1,7 +1,7 @@
 window.Pipes = (function () {
 	'use strict';
 
-	var SPEED = 10;
+	var SPEED = Game.prototype.SPEED_OF_GROUND_AND_PIPES;
 	var INITIAL_POSITION_X = Game.prototype.WORLD_WIDTH;
 	var wentThrough = false;
 	var score = 0;
@@ -38,6 +38,7 @@ window.Pipes = (function () {
 		}
 		this.addScore();
 		document.getElementById('currentScore').innerHTML = score;
+		document.getElementById('score').innerHTML = score;
 		document.getElementById('bestScore').innerHTML = bestScore;
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
@@ -53,6 +54,10 @@ window.Pipes = (function () {
 			wentThrough = true;
 		}
 	};
+	
+	Pipes.prototype.returnScore = function () {
+		return score;
+	}
 
 	Pipes.prototype.getRand = function () {
 		return Math.floor(Math.random() * 20);

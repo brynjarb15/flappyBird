@@ -45,6 +45,11 @@
 	-webkit-transition: -webkit-transform 0.5s;
 	z-index: 10;
 }
+.Score {
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.4em;
+	color: white;
+}
 
 /**
 * Reset transform to animate it into the correct spot on the screen.
@@ -296,9 +301,10 @@ body {
 	left: 8em;
 }
 
-.muteButtons {
+.corner {
 	position: absolute;
 	width: 16em;
+	z-index: 10;
 }
 
 
