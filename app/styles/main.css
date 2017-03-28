@@ -57,7 +57,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 10em;
+	margin-top: 8em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -72,7 +72,7 @@
 }
 
 .currentScore {
-	margin-top: 1em;
+	margin-top: 2em;
 }
 
 body {
