@@ -1,20 +1,19 @@
 window.Ground = (function () {
 	'use strict';
 
-	var SPEED = 10;
+	var SPEED = Game.prototype.SPEED_OF_GROUND_AND_PIPES;
 	var INITIAL_POSITION_X = 0;
 	var INITIAL_POSITION_Y = 0;
 
 	var Ground = function (el, game) {
 		this.el = el;
 		this.game = game;
-		this.pos = { x: 0, y: 80.5 };
-		//INITIAL_POSITION_Y = this.game.WORLD_HEIGHT - 7;
+		this.pos = { x: 0, y: 39.5 };
 	};
 
 	Ground.prototype.reset = function () {
 		this.pos.x = INITIAL_POSITION_X;
-		this.pos.y = 38.5;
+		this.pos.y = 39.5;
 	};
 
 	Ground.prototype.onFrame = function (delta) {

@@ -1,7 +1,7 @@
 window.Pipes = (function () {
 	'use strict';
 
-	var SPEED = 10;
+	var SPEED = Game.prototype.SPEED_OF_GROUND_AND_PIPES;
 	var INITIAL_POSITION_X = Game.prototype.WORLD_WIDTH;
 	var wentThrough = false;
 	var score = 0;
