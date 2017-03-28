@@ -59,7 +59,6 @@ window.Player = (function () {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}*/
-
 		this.checkCollisionWithBounds();
 
 		// Update UI
@@ -86,7 +85,7 @@ window.Player = (function () {
 			)
 		) {
 			this.rotationDegree = 90;
-			this.pos.y = this.game.WORLD_HEIGHT - 2.5 - HEIGHT;
+			//this.pos.y = this.game.WORLD_HEIGHT - 2.5 - HEIGHT;
 			var snd = new Audio("../sounds/flappyBirdSounds/hit.wav");
 			snd.play();
 			return this.game.gameover();
