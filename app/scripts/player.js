@@ -60,7 +60,6 @@ window.Player = (function () {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}*/
-
 		this.checkCollisionWithBounds();
 
 		// Update UI
@@ -69,6 +68,7 @@ window.Player = (function () {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function () {
+		return;
 		/*if ( this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||

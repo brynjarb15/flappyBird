@@ -259,26 +259,26 @@ body {
 	top: -9em;
 }
 
-
-.Pipe1 {
+.pipe {
 	position: absolute;
-	background: url('../images/flappyPipe1.jpg');
-	background-size: 8%;
-	background-repeat: no-repeat;
 	width: 100%;
+	height: 100%;
+}
+
+.upperPipe {
+	background: url('../images/flappyPipe2.jpg') no-repeat;
+	width: 10em;
+	height: 100%;
+	margin-top: -35em;
+}
+
+.lowerPipe {
+	background: url('../images/flappyPipe1.jpg') no-repeat;
+	width: 10em;
 	height: 100%;
 	margin-top:30em;
 }
 
-.Pipe2 {
-	position: absolute;
-	background: url('../images/flappyPipe2.jpg');
-	background-size: 8%;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	margin-top: -35em;
-}
 
 .Ground {
 	margin-top: 56.5em;

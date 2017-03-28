@@ -12,15 +12,15 @@ window.Game = (function () {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.cloud = new window.Cloud(this.el.find('.Cloud'), this);
 		this.ground = new window.Ground(this.el.find('.Ground'), this);
-		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), this);
-		this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), this);
 
+		this.pipes = new Array();
+		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe1'), this, 0), 
+						 upper: new window.Pipes(this.el.find('.Pipe2'), this, 0)});
+		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe3'), this, 1), 
+						 upper: new window.Pipes(this.el.find('.Pipe4'), this, 1)});
+		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe5'), this, 2), 
+						 upper: new window.Pipes(this.el.find('.Pipe6'), this, 2)});
 
-
-		//this.ground = new window.Ground(this.el.find('.Ground'), this);
-		//this.cloud = new window.Cloud(this.el.find('.Cloud'), this);
-		//this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
-		//background?
 		this.isPlaying = false;
 
 
@@ -55,8 +55,12 @@ window.Game = (function () {
 		this.player.onFrame(delta);
 		this.cloud.onFrame(delta);
 		this.ground.onFrame(delta);
-		this.pipe1.onFrame(delta);
-		this.pipe2.onFrame(delta);
+		
+		for(var i = 0; i < this.pipes.length; i++) {
+			this.pipes[i].lower.onFrame(delta);
+			this.pipes[i].upper.onFrame(delta);
+		}
+
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -81,8 +85,11 @@ window.Game = (function () {
 		this.player.reset();
 		this.cloud.reset();
 		this.ground.reset();
-		this.pipe1.reset();
-		this.pipe2.reset();
+
+		for(var i = 0; i < this.pipes.length; i++) {
+			this.pipes[i].lower.reset(40*i);
+			this.pipes[i].upper.reset(40*i);
+		}
 	};
 
 	/**
