@@ -124,6 +124,8 @@ window.Game = (function () {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
+
+	// you can make this number higher than the ground and the pipes will move faster
 	Game.prototype.SPEED_OF_GROUND_AND_PIPES = 30;
 
 	Game.prototype.isMuted = false;

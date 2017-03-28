@@ -30,7 +30,6 @@ window.Player = (function () {
 	};
 
 	Player.prototype.onFrame = function (delta) {
-
 		if (Controls.didJump()) {
 			this.pos.y -= delta * SPEED * 8;
 			this.rotationDegree = -25; // make player look up
@@ -44,7 +43,7 @@ window.Player = (function () {
 			this.rotationDegree += 2; // rotate toward the groun
 			this.multiplycationOfFalling += 0.1;
 		} else {
-			this.multiplycationOfFalling += 0.3;
+			this.multiplycationOfFalling += 0.3;	// falls faster when he has rotated more than 90 degrees
 		}
 
 		this.pos.y += delta * SPEED * 0.2 * this.multiplycationOfFalling; // this push the player down
@@ -57,11 +56,11 @@ window.Player = (function () {
 
 	Player.prototype.checkCollisionWithBounds = function () {
 		var nextPipe = this.game.nextPipe.thePipes.lower;
-		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5 ||	//athuga hvort hann fari í jörðina
-			(this.pos.x + WIDTH - 2 > nextPipe.pos.x &&		//athuga hvort hann sé kominn að pípunni
-				this.pos.x + WIDTH <= nextPipe.pos.x + nextPipe.size.WIDTH && // athuga hvort hann sé komin lengra en pípan
-				(this.pos.y < nextPipe.pos.y + 21 ||			//athuga hvort hann sé fyrir neðan efri
-					this.pos.y > nextPipe.pos.y + 30)				//athuga hvort hann sé fyrir ofan neðrir pípuna
+		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5 ||				// thuga hvort hann fari í jörðina
+			(this.pos.x + WIDTH - 2 > nextPipe.pos.x &&							// athuga hvort hann sé kominn að pípunni
+				this.pos.x + WIDTH <= nextPipe.pos.x + nextPipe.size.WIDTH &&	// athuga hvort hann sé komin lengra en pípan
+				(this.pos.y < nextPipe.pos.y + 21 ||							// athuga hvort hann sé fyrir neðan efri
+					this.pos.y > nextPipe.pos.y + 30)							// athuga hvort hann sé fyrir ofan neðrir pípuna
 			)
 		) {
 			this.rotationDegree = 90;
