@@ -16,7 +16,11 @@ if (!window.requestAnimationFrame) {
 }
 
 
-function muteSound() {
+function muteMusic() {
 	backgroundMusic = document.getElementById('backgroundMusic');
 	backgroundMusic.muted = !backgroundMusic.muted;
+}
+
+function muteSound() {
+	window.Game.prototype.isMuted = !window.Game.prototype.isMuted;
 }

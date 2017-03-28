@@ -28,9 +28,13 @@
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
-	<button type="button" onclick="muteSound()">Mute</button>
+	<button type="button" onclick="muteMusic()">Mute Music</button>
+	<button type="button" onclick="muteSound()">Mute Sound</button>
 	<audio id="backgroundMusic" autoplay loop>
 		<source src="./sounds/Route_4.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="jumpSound" >
+		<source src="./sounds/jump.mp3" type="audio/mpeg">
 	</audio>
 	<div class="GameCanvas">
 		<div id="backgroundClouds">

@@ -35,9 +35,10 @@ window.Player = (function () {
 			this.pos.y -= delta * SPEED * 8;
 			this.rotationDegree = -25; // make player look up
 			this.multiplycationOfFalling = 1; // restart factor of falling
-
-			var snd = new Audio("../sounds/flappyBirdSounds/jump.wav"); // make jump sound
-			snd.play();
+			if (!this.game.isMuted) {
+				var snd = new Audio("../sounds/flappyBirdSounds/jump.wav"); // make jump sound
+				snd.play();
+			}
 		}
 		else if (this.rotationDegree < 90) {
 			this.rotationDegree += 2; // rotate toward the groun
@@ -59,6 +60,7 @@ window.Player = (function () {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}*/
+
 		this.checkCollisionWithBounds();
 
 		// Update UI
@@ -86,8 +88,10 @@ window.Player = (function () {
 		) {
 			this.rotationDegree = 90;
 			//this.pos.y = this.game.WORLD_HEIGHT - 2.5 - HEIGHT;
-			var snd = new Audio("../sounds/flappyBirdSounds/hit.wav");
-			snd.play();
+			if (!this.game.isMuted) {
+				var hitSound = new Audio("../sounds/flappyBirdSounds/hit.wav");
+				hitSound.play();
+			}
 			return this.game.gameover();
 		}
 	};
