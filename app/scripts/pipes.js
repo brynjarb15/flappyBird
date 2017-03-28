@@ -38,6 +38,7 @@ window.Pipes = (function () {
 		}
 		this.addScore();
 		document.getElementById('currentScore').innerHTML = score;
+		document.getElementById('score').innerHTML = score;
 		document.getElementById('bestScore').innerHTML = bestScore;
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
@@ -53,6 +54,10 @@ window.Pipes = (function () {
 			wentThrough = true;
 		}
 	};
+	
+	Pipes.prototype.returnScore = function () {
+		return score;
+	}
 
 	Pipes.prototype.getRand = function () {
 		return Math.floor(Math.random() * 20);

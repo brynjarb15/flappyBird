@@ -32,10 +32,13 @@
 		<source src="./sounds/Route_4.mp3" type="audio/mpeg">
 	</audio>
 	<div class="GameCanvas">
-		<div class="muteButtons">
+		<div class="corner">
 			<button class="muteMusicButton" type="button" onclick="muteMusic()">Mute Music</button>
 			<button class="muteSoundButton" type="button" onclick="muteSound()">Mute Sound</button>
+			<div class="Scoreboard-restartText"> Your Score: <span id="score"></span></div>
 		</div>
+		
+
 		<!--<input type="image" onclick="muteSound()" src="http://i.stack.imgur.com/e2S63.png"/>-->
 		<div id="backgroundClouds">
 			<div id="background-wrap">
@@ -98,7 +101,6 @@
 	<script src="scripts/game.js"></script>
 	<script src="scripts/player.js"></script>
 	<script src="scripts/utils.js"></script>
-	<script src="scripts/cloud.js"></script>
 	<script src="scripts/ground.js"></script>
 	<script src="scripts/pipes.js"></script>
 	<!-- endbuild -->
