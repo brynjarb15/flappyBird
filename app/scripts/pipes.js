@@ -17,7 +17,6 @@ window.Pipes = (function () {
 	};
 
 	Pipes.prototype.reset = function (distanceFromStart) {
-		console.log('inside reset');
 		this.pos.x = INITIAL_POSITION_X + distanceFromStart;
 		this.pos.y = this.getRand();
 		score = 0;
@@ -25,7 +24,6 @@ window.Pipes = (function () {
 	};
 
 	Pipes.prototype.resetX = function () {
-		console.log('inside reset');
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = this.getRand();
 		wentThrough = false;
@@ -33,7 +31,7 @@ window.Pipes = (function () {
 
 	Pipes.prototype.onFrame = function (delta) {
 		this.game.pipes[this.pipesNumber].upper.pos.y = this.game.pipes[this.pipesNumber].lower.pos.y;
-		this.pos.x -= delta * SPEED;
+		this.pos.x -= delta * SPEED*2;
 		if (this.pos.x <= -13) {
 			this.resetX();
 		}
@@ -47,6 +45,7 @@ window.Pipes = (function () {
 			score++;
 			console.log("score: ", score);
 			wentThrough = true;
+			this.game.setNextPipe();
 		}
 	};
 

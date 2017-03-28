@@ -20,7 +20,6 @@ window.Game = (function () {
 						 upper: new window.Pipes(this.el.find('.Pipe4'), this, 1)});
 		this.pipes.push({lower: new window.Pipes(this.el.find('.Pipe5'), this, 2), 
 						 upper: new window.Pipes(this.el.find('.Pipe6'), this, 2)});
-
 		this.isPlaying = false;
 
 
@@ -55,7 +54,7 @@ window.Game = (function () {
 		this.player.onFrame(delta);
 		this.cloud.onFrame(delta);
 		this.ground.onFrame(delta);
-		
+
 		for(var i = 0; i < this.pipes.length; i++) {
 			this.pipes[i].lower.onFrame(delta);
 			this.pipes[i].upper.onFrame(delta);
@@ -82,6 +81,7 @@ window.Game = (function () {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function () {
+		this.nextPipe = { thePipes: this.pipes[0], pipeNumber: 0};
 		this.player.reset();
 		this.cloud.reset();
 		this.ground.reset();
@@ -109,6 +109,15 @@ window.Game = (function () {
 				that.start();
 			});
 	};
+
+	Game.prototype.setNextPipe = function (){
+		console.log(this.pipes.length);
+		var nextPipeNumber = this.nextPipe.pipeNumber + 1;
+		nextPipeNumber =  nextPipeNumber % (this.pipes.length);
+		this.nextPipe.thePipes = this.pipes[nextPipeNumber];
+		this.nextPipe.pipeNumber = nextPipeNumber;
+		console.log('nextPipe', nextPipeNumber);
+	}
 
 	/**
 	 * Some shared constants.

@@ -68,7 +68,6 @@ window.Player = (function () {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function () {
-		return;
 		/*if ( this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
@@ -79,11 +78,12 @@ window.Player = (function () {
 			this.rotationDegree = 90;
 			return this.game.gameover();
 		}*/
+		var nextPipe = this.game.nextPipe.thePipes.lower;
 		if (this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 2.5 ||	//athuga hvort hann fari í jörðina
-			(this.pos.x + WIDTH - 2 > this.game.pipe1.pos.x &&		//athuga hvort hann sé kominn að pípunni
-				!(this.pos.x + WIDTH > this.game.pipe1.pos.x + this.game.pipe1.size.WIDTH) && // athuga hvort hann sé komin lengra en pípan
-				(this.pos.y < this.game.pipe1.pos.y + 21 ||			//athuga hvort hann sé fyrir neðan efri
-					this.pos.y > this.game.pipe1.pos.y + 30)				//athuga hvort hann sé fyrir ofan neðrir pípuna
+			(this.pos.x + WIDTH - 2 > nextPipe.pos.x &&		//athuga hvort hann sé kominn að pípunni
+				!(this.pos.x + WIDTH > nextPipe.pos.x + nextPipe.size.WIDTH) && // athuga hvort hann sé komin lengra en pípan
+				(this.pos.y < nextPipe.pos.y + 21 ||			//athuga hvort hann sé fyrir neðan efri
+					this.pos.y > nextPipe.pos.y + 30)				//athuga hvort hann sé fyrir ofan neðrir pípuna
 			)
 		) {
 			this.rotationDegree = 90;
