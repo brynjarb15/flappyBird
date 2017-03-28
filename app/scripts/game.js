@@ -10,7 +10,6 @@ window.Game = (function () {
 	var Game = function (el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.cloud = new window.Cloud(this.el.find('.Cloud'), this);
 		this.ground = new window.Ground(this.el.find('.Ground'), this);
 
 		this.pipes = new Array();
@@ -52,7 +51,6 @@ window.Game = (function () {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-		this.cloud.onFrame(delta);
 		this.ground.onFrame(delta);
 
 		for(var i = 0; i < this.pipes.length; i++) {
@@ -83,7 +81,6 @@ window.Game = (function () {
 	Game.prototype.reset = function () {
 		this.nextPipe = { thePipes: this.pipes[0], pipeNumber: 0};
 		this.player.reset();
-		this.cloud.reset();
 		this.ground.reset();
 
 		for(var i = 0; i < this.pipes.length; i++) {
