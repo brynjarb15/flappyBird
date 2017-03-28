@@ -5,6 +5,7 @@ window.Pipes = (function () {
 	var INITIAL_POSITION_X = Game.prototype.WORLD_WIDTH;
 	var wentThrough = false;
 	var score = 0;
+	var bestScore = 0;
 
 
 	var Pipes = function (el, game, pipesNumber, distanceFromStart) {
@@ -31,11 +32,13 @@ window.Pipes = (function () {
 
 	Pipes.prototype.onFrame = function (delta) {
 		this.game.pipes[this.pipesNumber].upper.pos.y = this.game.pipes[this.pipesNumber].lower.pos.y;
-		this.pos.x -= delta * SPEED*2;
+		this.pos.x -= delta * SPEED;
 		if (this.pos.x <= -13) {
 			this.resetX();
 		}
 		this.addScore();
+		document.getElementById('currentScore').innerHTML = score;
+		document.getElementById('bestScore').innerHTML = bestScore;
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
@@ -43,9 +46,11 @@ window.Pipes = (function () {
 
 		if (this.player.pos.x > this.game.pipes[this.pipesNumber].lower.pos.x && wentThrough == false) {
 			score++;
-			console.log("score: ", score);
-			wentThrough = true;
+			if(score > bestScore) {
+				bestScore = score;
+			}
 			this.game.setNextPipe();
+			wentThrough = true;
 		}
 	};
 
