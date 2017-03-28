@@ -14,7 +14,7 @@ window.Ground = (function () {
 
 	Ground.prototype.reset = function () {
 		this.pos.x = INITIAL_POSITION_X;
-		this.pos.y = 39.5;
+		this.pos.y = 38.5;
 	};
 
 	Ground.prototype.onFrame = function (delta) {

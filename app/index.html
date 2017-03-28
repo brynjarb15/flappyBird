@@ -28,15 +28,15 @@
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
-	<button type="button" onclick="muteMusic()">Mute Music</button>
-	<button type="button" onclick="muteSound()">Mute Sound</button>
 	<audio id="backgroundMusic" autoplay loop>
 		<source src="./sounds/Route_4.mp3" type="audio/mpeg">
 	</audio>
-	<audio id="jumpSound" >
-		<source src="./sounds/jump.mp3" type="audio/mpeg">
-	</audio>
 	<div class="GameCanvas">
+		<div class="muteButtons">
+			<button class="muteMusicButton" type="button" onclick="muteMusic()">Mute Music</button>
+			<button class="muteSoundButton" type="button" onclick="muteSound()">Mute Sound</button>
+		</div>
+		<!--<input type="image" onclick="muteSound()" src="http://i.stack.imgur.com/e2S63.png"/>-->
 		<div id="backgroundClouds">
 			<div id="background-wrap">
 				<div class="x1">
@@ -46,7 +46,7 @@
 				<div class="x2">
 					<div class="cloud"></div>
 				</div>
-				
+
 				<div class="x3">
 					<div class="cloud"></div>
 				</div>
@@ -59,7 +59,8 @@
 			<div class="pikachu"></div>
 		</div>
 		<div class="Scoreboard">
-			<div>Your Score: </div>
+			<div class="Scoreboard-restartText currentScore">Your Score: </div>
+			<div class="Scoreboard-restartText currentScore">Best Score: </div>
 			<button class="Scoreboard-restart">
 				<span class="Scoreboard-restartText">Restart</span>
 			</button>
